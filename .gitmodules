@@ -1,0 +1,238 @@
+[submodule "ace-window"]
+	path = lib/ace-window
+	url = https://github.com/abo-abo/ace-window.git
+[submodule "ag"]
+	path = lib/ag
+	url = https://github.com/Wilfred/ag.el.git
+[submodule "all-the-icons"]
+	path = lib/all-the-icons
+	url = https://github.com/domtronn/all-the-icons.el.git
+[submodule "auctex"]
+	path = lib/auctex
+	url = https://git.savannah.gnu.org/git/auctex.git
+[submodule "avy"]
+	path = lib/avy
+	url = https://github.com/abo-abo/avy.git
+[submodule "ccls"]
+	path = lib/ccls
+	url = https://github.com/MaskRay/emacs-ccls.git
+[submodule "cmake-ide"]
+	path = lib/cmake-ide
+	url = https://github.com/atilaneves/cmake-ide.git
+[submodule "company"]
+	path = lib/company
+	url = https://github.com/company-mode/company-mode.git
+[submodule "company-lsp"]
+	path = lib/company-lsp
+	url = https://github.com/tigersoldier/company-lsp.git
+[submodule "counsel-projectile"]
+	path = lib/counsel-projectile
+	url = https://github.com/ericdanan/counsel-projectile.git
+[submodule "dash"]
+	path = lib/dash
+	url = https://github.com/magnars/dash.el.git
+[submodule "disaster"]
+	path = lib/disaster
+	url = https://github.com/jart/disaster.git
+[submodule "doom-modeline"]
+	path = lib/doom-modeline
+	url = https://github.com/seagle0128/doom-modeline.git
+[submodule "doom-themes"]
+	path = lib/doom-themes
+	url = https://github.com/hlissner/emacs-doom-themes.git
+[submodule "editorconfig"]
+	path = lib/editorconfig
+	url = https://github.com/editorconfig/editorconfig-emacs.git
+[submodule "eldoc-eval"]
+	path = lib/eldoc-eval
+	url = https://github.com/thierryvolpiatto/eldoc-eval.git
+[submodule "elfeed"]
+	path = lib/elfeed
+	url = https://github.com/skeeto/elfeed.git
+[submodule "elfeed-org"]
+	path = lib/elfeed-org
+	url = https://github.com/remyhonig/elfeed-org.git
+[submodule "emacs-async"]
+	path = lib/emacs-async
+	url = https://github.com/jwiegley/emacs-async.git
+[submodule "emacs-memoize"]
+	path = lib/emacs-memoize
+	url = https://github.com/skeeto/emacs-memoize.git
+[submodule "evil"]
+	path = lib/evil
+	url = https://github.com/emacs-evil/evil.git
+[submodule "evil-args"]
+	path = lib/evil-args
+	url = https://github.com/wcsmith/evil-args.git
+[submodule "evil-commentary"]
+	path = lib/evil-commentary
+	url = https://github.com/linktohack/evil-commentary.git
+[submodule "evil-goggles"]
+	path = lib/evil-goggles
+	url = https://github.com/edkolev/evil-goggles.git
+[submodule "evil-leader"]
+	path = lib/evil-leader
+	url = https://github.com/cofi/evil-leader.git
+[submodule "evil-matchit"]
+	path = lib/evil-matchit
+	url = https://github.com/redguardtoo/evil-matchit.git
+[submodule "evil-snipe"]
+	path = lib/evil-snipe
+	url = https://github.com/hlissner/evil-snipe.git
+[submodule "evil-surround"]
+	path = lib/evil-surround
+	url = https://github.com/emacs-evil/evil-surround.git
+[submodule "f"]
+	path = lib/f
+	url = https://github.com/rejeep/f.el.git
+[submodule "flycheck"]
+	path = lib/flycheck
+	url = https://github.com/flycheck/flycheck.git
+[submodule "ghub"]
+	path = lib/ghub
+	url = https://github.com/magit/ghub.git
+[submodule "git-gutter"]
+	path = lib/git-gutter
+	url = https://github.com/syohex/emacs-git-gutter.git
+[submodule "git-timemachine"]
+	path = lib/git-timemachine
+	url = https://gitlab.com/pidu/git-timemachine.git
+[submodule "graphql"]
+	path = lib/graphql
+	url = https://github.com/vermiculus/graphql.el.git
+[submodule "graphviz-dot-mode"]
+	path = lib/graphviz-dot-mode
+	url = https://github.com/ppareit/graphviz-dot-mode.git
+[submodule "helm"]
+	path = lib/helm
+	url = https://github.com/emacs-helm/helm.git
+[submodule "helm-mu"]
+	path = lib/helm-mu
+	url = https://github.com/emacs-helm/helm-mu.git
+[submodule "ht"]
+	path = lib/ht
+	url = https://github.com/Wilfred/ht.el.git
+[submodule "hydra"]
+	path = lib/hydra
+	url = https://github.com/abo-abo/hydra.git
+[submodule "ivy-rich"]
+	path = lib/ivy-rich
+	url = https://github.com/Yevgnen/ivy-rich.git
+[submodule "ivy-xref"]
+	path = lib/ivy-xref
+	url = https://github.com/alexmurray/ivy-xref.git
+[submodule "key-chord"]
+	path = lib/key-chord
+	url = https://github.com/emacsorphanage/key-chord.git
+[submodule "levenshtein"]
+	path = lib/levenshtein
+	url = https://github.com/emacsorphanage/levenshtein.git
+[submodule "lib/borg"]
+	path = lib/borg
+	url = https://github.com/emacscollective/borg.git
+[submodule "load-relative"]
+	path = lib/load-relative
+	url = https://github.com/rocky/emacs-load-relative.git
+[submodule "loc-changes"]
+	path = lib/loc-changes
+	url = https://github.com/rocky/emacs-loc-changes.git
+[submodule "lsp-mode"]
+	path = lib/lsp-mode
+	url = https://github.com/emacs-lsp/lsp-mode.git
+[submodule "lsp-ui"]
+	path = lib/lsp-ui
+	url = https://github.com/emacs-lsp/lsp-ui.git
+[submodule "lua-mode"]
+	path = lib/lua-mode
+	url = https://github.com/immerrr/lua-mode.git
+[submodule "magit"]
+	path = lib/magit
+	url = https://github.com/magit/magit.git
+[submodule "magit-popup"]
+	path = lib/magit-popup
+	url = https://github.com/magit/magit-popup.git
+[submodule "markdown-mode"]
+	path = lib/markdown-mode
+	url = https://github.com/jrblevin/markdown-mode.git
+[submodule "org-super-agenda"]
+	path = lib/org-super-agenda
+	url = https://github.com/alphapapa/org-super-agenda.git
+[submodule "pdf-tools"]
+	path = lib/pdf-tools
+	url = https://github.com/politza/pdf-tools.git
+[submodule "powerline"]
+	path = lib/powerline
+	url = https://github.com/milkypostman/powerline.git
+[submodule "projectile"]
+	path = lib/projectile
+	url = https://github.com/bbatsov/projectile.git
+[submodule "protobuf-mode"]
+	path = lib/protobuf-mode
+	url = https://github.com/protocolbuffers/protobuf.git
+	load-path = editors
+[submodule "pytest"]
+	path = lib/pytest
+	url = https://github.com/ionrock/pytest-el.git
+[submodule "python-docstring"]
+	path = lib/python-docstring
+	url = https://github.com/glyph/python-docstring-mode.git
+[submodule "rainbow-delimiters"]
+	path = lib/rainbow-delimiters
+	url = https://github.com/Fanael/rainbow-delimiters.git
+[submodule "realgud"]
+	path = lib/realgud
+	url = https://github.com/realgud/realgud.git
+[submodule "rust-mode"]
+	path = lib/rust-mode
+	url = https://github.com/rust-lang/rust-mode.git
+[submodule "s"]
+	path = lib/s
+	url = https://github.com/magnars/s.el.git
+[submodule "shrink-path"]
+	path = lib/shrink-path
+	url = https://gitlab.com/bennya/shrink-path.el.git
+[submodule "smarttabs"]
+	path = lib/smarttabs
+	url = https://github.com/jcsalomon/smarttabs.git
+[submodule "spaceline"]
+	path = lib/spaceline
+	url = https://github.com/TheBB/spaceline.git
+[submodule "spinner"]
+	path = lib/spinner
+	url = https://github.com/Malabarba/spinner.el.git
+[submodule "swiper"]
+	path = lib/swiper
+	url = https://github.com/abo-abo/swiper.git
+[submodule "tablist"]
+	path = lib/tablist
+	url = https://github.com/politza/tablist.git
+[submodule "treepy"]
+	path = lib/treepy
+	url = https://github.com/volrath/treepy.el.git
+[submodule "undo-tree"]
+	path = lib/undo-tree
+	url = https://github.com/emacsorphanage/undo-tree.git
+[submodule "use-package"]
+	path = lib/use-package
+	url = https://github.com/jwiegley/use-package.git
+[submodule "virtualenvwrapper"]
+	path = lib/virtualenvwrapper
+	url = https://github.com/porterjamesj/virtualenvwrapper.el.git
+[submodule "which-key"]
+	path = lib/which-key
+	url = https://github.com/justbur/emacs-which-key.git
+[submodule "with-editor"]
+	path = lib/with-editor
+	url = https://github.com/magit/with-editor.git
+[submodule "ws-buttler"]
+	path = lib/ws-buttler
+	url = https://github.com/lewang/ws-butler.git
+[submodule "yaml-mode"]
+	path = lib/yaml-mode
+	url = https://github.com/yoshiki/yaml-mode.git
+[submodule "yasnippet"]
+	path = lib/yasnippet
+	url = https://github.com/joaotavora/yasnippet.git
+[submodule "yasnippet-snippets"]
+	path = lib/yasnippet-snippets
+	url = https://github.com/AndreaCrotti/yasnippet-snippets.git
