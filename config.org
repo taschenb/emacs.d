@@ -222,7 +222,6 @@ Use relative line numbers in order to make evil-mode a little bit easier, but us
 ** Default
 #+BEGIN_SRC emacs-lisp
   (use-package doom-themes
-    :ensure t
     :config
     ;; Global settings (defaults)
     (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
@@ -290,10 +289,6 @@ https://www.superloopy.io/articles/2017/hydra-theme-switcher.html
 * Mode line
 #+BEGIN_SRC emacs-lisp
   (use-package doom-modeline
-        :ensure t
-        :disabled t
-        :defer t
-        :requires (shrink-path eldoc-eval)
         :hook (after-init . doom-modeline-init))
 #+END_SRC
 
@@ -370,7 +365,6 @@ The Emacs version is however a little unstable.
 
 #+BEGIN_SRC emacs-lisp
     (use-package undo-tree
-      :ensure t
       :config
       (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo"))
             undo-tree-auto-save-history t
@@ -457,7 +451,6 @@ Switch window in a precise manner
 
 #+BEGIN_SRC emacs-lisp
   (use-package ace-window
-    :ensure t
     ;; :bind (("C-x C-o" . ace-window)
     ;;        ("C-x o" . ace-window))
     :config
@@ -499,7 +492,6 @@ customizable.
 
 #+BEGIN_SRC emacs-lisp
   (use-package ivy
-    :ensure t
     :init
     (ivy-mode 1)
     :config
@@ -520,7 +512,6 @@ Enable fuzzy search in the autocompletion of M-x as well as some other useful co
 
 #+BEGIN_SRC emacs-lisp
     (use-package counsel
-      :ensure t
       :after ivy
       :bind
       (("M-y" . counsel-yank-pop)
@@ -533,7 +524,6 @@ Swiper makes the default search with C-s really neat.
 
 #+BEGIN_SRC emacs-lisp
   (use-package swiper
-    :ensure t
     :after evil
     :after ivy
     :bind
@@ -544,7 +534,6 @@ Swiper makes the default search with C-s really neat.
 #+BEGIN_SRC emacs-lisp
   (use-package ivy-rich
     :after ivy
-    :ensure t
     :init
     (ivy-rich-mode 1))
 #+END_SRC
@@ -562,7 +551,6 @@ Swiper makes the default search with C-s really neat.
 * Project management
 #+BEGIN_SRC emacs-lisp
   (use-package projectile
-    :ensure t
     :bind (:map projectile-mode-map
                 ("C-c p" . 'projectile-command-map))
     :config
@@ -583,7 +571,6 @@ Projectile has native support for using ivy as its completion system. Counsel-pr
 
 #+BEGIN_SRC emacs-lisp
   (use-package counsel-projectile
-    :ensure t
     :after ivy
     :config
     (counsel-projectile-mode))
@@ -591,15 +578,13 @@ Projectile has native support for using ivy as its completion system. Counsel-pr
 
 ** Silversearcher dependency
 #+BEGIN_SRC emacs-lisp
-  (use-package ag
-    :ensure t)
+  (use-package ag)
 #+END_SRC
 
 * Evil-Mode (VIM)
 
 #+BEGIN_SRC emacs-lisp
   (use-package evil
-    :ensure t
     :init
     :config
     (evil-mode 1)
@@ -617,7 +602,6 @@ Projectile has native support for using ivy as its completion system. Counsel-pr
 Add a leader key
 #+BEGIN_SRC emacs-lisp
   (use-package evil-leader
-    :ensure t
     :after evil
     :config
     (global-evil-leader-mode)
@@ -632,7 +616,6 @@ Add a leader key
 ** Surround
 #+BEGIN_SRC emacs-lisp
   (use-package evil-surround
-    :ensure t
     :after evil
     :config
     (global-evil-surround-mode 1))
@@ -643,7 +626,6 @@ Exit insert mode by rolling over 'j', 'k'. Since it's not common (for me) to
 press these keys consecutively, this is a comfortable way of exiting insert mode.
 #+BEGIN_SRC emacs-lisp
   (use-package key-chord
-    :ensure t
     :after evil
     :config
     (setq key-chord-two-keys-delay 0.5)
@@ -655,7 +637,6 @@ press these keys consecutively, this is a comfortable way of exiting insert mode
 It is really handy to mark regions as comments based on the source file type
 #+BEGIN_SRC emacs-lisp
   (use-package evil-commentary
-    :ensure t
     :after evil
     :config
     (evil-commentary-mode))
@@ -665,7 +646,6 @@ It is really handy to mark regions as comments based on the source file type
 Use '%' to jump between matching tags
 #+BEGIN_SRC emacs-lisp
   (use-package evil-matchit
-    :ensure t
     :after evil
     :config
     (global-evil-matchit-mode 1))
@@ -675,7 +655,6 @@ Use '%' to jump between matching tags
 Enable arguments as motion and text objects
 #+BEGIN_SRC emacs-lisp
       (use-package evil-args
-        :ensure t
         :config
         (define-key evil-inner-text-objects-map "a" 'evil-inner-arg)
         (define-key evil-outer-text-objects-map "a" 'evil-outer-arg))
@@ -686,7 +665,6 @@ A little animation when you yank/kill something so that you see the scope of
 that operation
 #+BEGIN_SRC emacs-lisp
       (use-package evil-goggles
-        :ensure t
         :config
         (evil-goggles-mode)
 
@@ -701,7 +679,6 @@ that operation
 Evil-snipe emulates vim-seek and/or vim-sneak in evil-mode. It provides 2-character motions for quickly (and more accurately) jumping around text.
 #+BEGIN_SRC emacs-lisp
   (use-package evil-snipe
-    :ensure t
     :after evil
     :init
     (evil-snipe-mode +1)
@@ -712,8 +689,7 @@ Evil-snipe emulates vim-seek and/or vim-sneak in evil-mode. It provides 2-charac
 
 * Hydra
 #+BEGIN_SRC emacs-lisp
-  (use-package hydra
-    :ensure t)
+  (use-package hydra)
 #+END_SRC
 
 ** Window
@@ -802,7 +778,6 @@ keybindings that you could continue with.
 
 #+BEGIN_SRC emacs-lisp
   (use-package which-key
-    :ensure t
     :defer 0.2
     :diminish
     :config (which-key-mode))
@@ -819,7 +794,6 @@ Enable on the fly spell checking with a special mode for source code to check in
 * Markdown-Mode
 #+BEGIN_SRC emacs-lisp
   (use-package markdown-mode
-    :ensure t
     :defer t
     :commands
     (markdown-mode gfm-mode)
@@ -871,7 +845,6 @@ Enable on the fly spell checking with a special mode for source code to check in
 ** Bibtex
 #+BEGIN_SRC emacs-lisp
   (use-package org-ref
-    :ensure t
     :defer t
     :commands
     (org-ref)
@@ -1152,7 +1125,6 @@ reference it regularly
 **** Super-Agenda
 #+BEGIN_SRC emacs-lisp
   (use-package org-super-agenda
-    :ensure t
     :config (org-super-agenda-mode))
 #+END_SRC
 
@@ -1327,8 +1299,7 @@ ox-reveal has some dependency issues with org-mode from melpa
     :disabled t
     :init
     ;; Enable syntax highlighting
-    (use-package htmlize
-       :ensure t)
+    (use-package htmlize)
     :config
     (setq org-reveal-root "file:///home/taschenb/projects/reveal.js/"
           org-reveal-theme "simple")
@@ -1394,7 +1365,6 @@ Because dvipng can't handle tikz, use imagemagick
 * Syntax-Checking
 #+BEGIN_SRC emacs-lisp
   (use-package flycheck
-    :ensure t
     :init
     (setq flycheck-mode-line
           '(:eval
@@ -1450,7 +1420,6 @@ With this you can commit proper code without annoying anyone.
 
 #+BEGIN_SRC emacs-lisp
   (use-package ws-butler
-    :ensure t
     :config
     (ws-butler-global-mode))
 #+END_SRC
@@ -1468,7 +1437,6 @@ Writegood highlights text based on a set of weasel-words, passive-voice and dupl
 
 #+BEGIN_SRC emacs-lisp
   (use-package writegood-mode
-    :ensure t
     :commands (writegood-grade-level
                writegood-mode
                writegood-reading-ease
@@ -1515,7 +1483,6 @@ Respect [[http://editorconfig.org/][editorconfig]] to automatically get the righ
 
 #+BEGIN_SRC emacs-lisp
   (use-package editorconfig
-  :ensure t
   :config
   (editorconfig-mode 1))
 #+END_SRC
@@ -1529,7 +1496,6 @@ worlds.
 
 #+BEGIN_SRC emacs-lisp
 (use-package smart-tabs-mode
-  :ensure t
   :init
     (smart-tabs-insinuate 'c 'c++))
 #+END_SRC
@@ -1548,7 +1514,6 @@ annoying if a code base has some ugly and weird alignment stuff going on.
 * Code folding
 #+BEGIN_SRC emacs-lisp
   (use-package hideshow
-    :ensure t
     :defer t
     :diminish hs-minor-mode
     :config
@@ -1567,7 +1532,6 @@ A typical auto-close parenthesis plugin.
 
 #+BEGIN_SRC emacs-lisp
   (use-package smartparens
-   :ensure t
    :init
    (add-hook 'python-mode-hook 'smartparens-mode)
    :commands
@@ -1590,7 +1554,6 @@ syntax highlighting
 Illustrate different levels with different colors
 #+BEGIN_SRC emacs-lisp
   (use-package rainbow-delimiters
-    :ensure t
     :config
     (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
     (add-hook 'LaTeX-mode-hook 'rainbow-delimiters-mode))
@@ -1600,7 +1563,6 @@ Illustrate different levels with different colors
 ** poporg
 #+BEGIN_SRC emacs-lisp
   (use-package poporg
-    :ensure t
     :bind (("C-c /" . poporg-dwim)))
 #+END_SRC
 
@@ -1608,7 +1570,6 @@ Illustrate different levels with different colors
 ** Company
 #+BEGIN_SRC emacs-lisp
   (use-package company
-    :ensure t
     :diminish company-mode
     :init
     (setf company-backends '((company-files
@@ -1636,7 +1597,6 @@ Illustrate different levels with different colors
 *** LSP
 #+BEGIN_SRC emacs-lisp
   (use-package company-lsp
-    :ensure t
     :after company
     :config
     (push 'company-lsp company-backends))
@@ -1700,7 +1660,6 @@ the same language server.
 ** Mode
 #+BEGIN_SRC emacs-lisp
   (use-package lsp-mode
-    :ensure t
     :config
     ;; Enable imenu-ingegration
     (require 'lsp-imenu)
@@ -1721,7 +1680,6 @@ the same language server.
 ** UI
 #+BEGIN_SRC emacs-lisp
   (use-package lsp-ui
-    :ensure t
     :init
     (add-hook 'lsp-mode-hook 'lsp-ui-mode))
 #+END_SRC
@@ -1729,7 +1687,6 @@ the same language server.
 * ivy-xref
 #+BEGIN_SRC emacs-lisp
   (use-package ivy-xref
-    :ensure t
     :init
     (setq xref-show-xrefs-function #'ivy-xref-show-xrefs))
 #+END_SRC
@@ -1749,14 +1706,12 @@ the same language server.
 ** Docstrings
 #+BEGIN_SRC emacs-lisp
   (use-package python-docstring
-    :ensure t
     :defer t)
 #+END_SRC
 
 ** Tests
 #+BEGIN_SRC emacs-lisp
   (use-package pytest
-    :ensure t
     :defer t)
 #+END_SRC
 
@@ -1766,7 +1721,6 @@ For C/C++ I use gdb with many-windows.
 
 #+BEGIN_SRC emacs-lisp
   (use-package realgud
-    :ensure t
     :defer t
     :init
     (with-eval-after-load 'python (progn
@@ -1779,7 +1733,6 @@ For C/C++ I use gdb with many-windows.
 ** Code Style
 #+BEGIN_SRC emacs-lisp
   (use-package py-yapf
-    :ensure t
     :defer t)
 #+END_SRC
 
@@ -1789,7 +1742,6 @@ venv-location. You can then load any of them with 'venv-workon'.
 
 #+BEGIN_SRC emacs-lisp
   (use-package virtualenvwrapper
-    :ensure t
     :config
     (venv-initialize-interactive-shells) ;; if you want interactive shell support
     (venv-initialize-eshell) ;; if you want eshell support
@@ -1850,7 +1802,6 @@ various informations.
 ** Cmake-IDE
 #+BEGIN_SRC emacs-lisp
   (use-package cmake-ide
-    :ensure t
     :after projectile
     :defer t
     :config
@@ -1869,7 +1820,6 @@ Cquery is a really cool LSP plugin, that works rather well. I do prefer it over 
       (user-error nil)))
 
   (use-package cquery
-    :ensure t
     :disabled t
     :commands lsp-cquery-enable
     :config
@@ -1888,7 +1838,6 @@ Cquery is a really cool LSP plugin, that works rather well. I do prefer it over 
       (user-error nil)))
 
   (use-package ccls
-    :ensure t
     :commands lsp-ccls-enable
     :config
     (setq ccls-executable "~/projects/ccls/build/ccls"
@@ -1906,7 +1855,6 @@ Cquery is a really cool LSP plugin, that works rather well. I do prefer it over 
 ** Disassembler
 #+BEGIN_SRC emacs-lisp
   (use-package disaster
-    :ensure t
     :defer t
     :config
     (define-key c-mode-base-map (kbd "C-c d") 'disaster)
@@ -1995,28 +1943,24 @@ Cquery is a really cool LSP plugin, that works rather well. I do prefer it over 
 
 * protobuf
 #+BEGIN_SRC emacs-lisp
-  (use-package protobuf-mode
-    :ensure t)
+  (use-package protobuf-mode)
 #+END_SRC
 
 * Rust
 #+BEGIN_SRC emacs-lisp
   (use-package rust-mode
-    :ensure t
     :defer t)
 #+END_SRC
 
 * Lua
 #+BEGIN_SRC emacs-lisp
   (use-package lua-mode
-    :ensure t
     :defer t)
 #+END_SRC
 
 * Snippets
 #+BEGIN_SRC emacs-lisp
   (use-package yasnippet
-    :ensure t
     :defer t
     :config
     (yas/initialize)
@@ -2026,14 +1970,12 @@ Cquery is a really cool LSP plugin, that works rather well. I do prefer it over 
 
 ** Snippets
 #+BEGIN_SRC emacs-lisp
-  (use-package yasnippet-snippets
-    :ensure t)
+  (use-package yasnippet-snippets)
 #+END_SRC
 
 * Git
 #+BEGIN_SRC emacs-lisp
   (use-package magit
-    :ensure t
     :init
     (global-set-key (kbd "C-x g") 'magit-status)
     :config
@@ -2044,7 +1986,6 @@ Cquery is a really cool LSP plugin, that works rather well. I do prefer it over 
 ** git-gutter
 #+BEGIN_SRC emacs-lisp
   (use-package git-gutter
-  :ensure t
   :config
   (global-git-gutter-mode +1))
 #+END_SRC
@@ -2052,7 +1993,6 @@ Cquery is a really cool LSP plugin, that works rather well. I do prefer it over 
 ** git-timemachine
 #+BEGIN_SRC emacs-lisp
   (use-package git-timemachine
-    :ensure t
     :defer t)
 #+END_SRC
 
@@ -2072,7 +2012,6 @@ Do not open the control interface in its own frame.
 ** Auctex
 #+BEGIN_SRC emacs-lisp
   (use-package tex
-    :ensure auctex
     :defer t
     :config
     (add-to-list 'TeX-view-program-list
@@ -2160,7 +2099,6 @@ Add Graphviz DOT-format to generate some pretty graphs and diagrams.
 
 #+BEGIN_SRC emacs-lisp
   (use-package graphviz-dot-mode
-    :ensure t
     :config
     (add-to-list 'org-src-lang-modes (quote ("dot" . graphviz-dot))))
 #+END_SRC
@@ -2171,7 +2109,6 @@ In your org-file add to the header
 
 #+BEGIN_SRC emacs-lisp
   (use-package interleave
-    :ensure t
     :defer t
     :commands
     (interleave-mode))
@@ -2180,7 +2117,6 @@ In your org-file add to the header
 View PDFs
 #+BEGIN_SRC emacs-lisp
   (use-package pdf-tools
-    :ensure t
     :config
     (pdf-tools-install)
     (setq-default pdf-view-display-size 'fit-page))
@@ -2198,8 +2134,7 @@ View PDFs
 
 * Yaml
 #+BEGIN_SRC emacs-lisp
-  (use-package yaml-mode
-    :ensure t)
+  (use-package yaml-mode)
 #+END_SRC
 
 * Epub
@@ -2208,7 +2143,6 @@ Emacs has to be compiled with libxml2 support.
 
 #+BEGIN_SRC emacs-lisp
   (use-package nov
-    :ensure t
     :defer t
     :config
     (push '("\\.epub\\'" . nov-mode) auto-mode-alist)
@@ -2370,7 +2304,6 @@ http://kitchingroup.cheme.cmu.edu/blog/2015/09/04/Checking-for-email-attachments
 *** helm-mu
 #+BEGIN_SRC emacs-lisp
   (use-package helm-mu
-    :ensure t
     :config
     (define-key mu4e-main-mode-map "s" 'helm-mu)
     (define-key mu4e-headers-mode-map "s" 'helm-mu)
@@ -2471,7 +2404,6 @@ folding."
 Use elfeed for managing RSS feeds
 #+BEGIN_SRC emacs-lisp
   (use-package elfeed
-    :ensure t
     :bind ("C-c f" . elfeed)
     :config
     ;; Disable evil-mode for elfeed
@@ -2482,7 +2414,6 @@ Use elfeed for managing RSS feeds
 Use an org-file to setup the feeds
 #+BEGIN_SRC emacs-lisp
   (use-package elfeed-org
-    :ensure t
     :config
     (elfeed-org)
     (setq rmh-elfeed-org-files (list "~/.emacs.d/elfeed.org")))
@@ -2497,7 +2428,6 @@ The default font is too tiny to read for me
 * MPD
 #+BEGIN_SRC emacs-lisp
   (use-package simple-mpc
-    :ensure t
     :bind ("C-c m" . simple-mpc)
     :config
     ;; Fix mopidy descrition
@@ -2584,8 +2514,6 @@ The default font is too tiny to read for me
 * Ledger
 #+BEGIN_SRC emacs-lisp
   (use-package ledger-mode
-    :ensure t
     :config
     (setq ledger-use-iso-dates t))
-
 #+END_SRC
