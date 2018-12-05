@@ -1,11 +1,8 @@
 ;; Disable garbage collection while starting for speedup
 (let ((gc-cons-threshold most-positive-fixnum))
 
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-(package-initialize)
+;; Use borg instead of package.el
+(setq package-enable-at-startup nil)
 
 (defun my-tangle-section-canceled ()
   "Return t if the current section header was CANCELED, else nil."

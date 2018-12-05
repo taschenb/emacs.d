@@ -92,38 +92,34 @@ Setting the coding-system to utf-8 breaks package.el and its gpg verification.
 #+END_SRC
 
 * Package management
-** package.el
-The two main sources for emacs are gnu as standard stable repo and melpa with basically everything, directly from upstream.
-Make sure to use the encrypted version, as there are far too many guides out there, still telling you otherwise.
-A good article on that matter: [[https://glyph.twistedmatrix.com/2015/11/editor-malware.html][Your Text Editor Is Malware]].
+** borg
+Borg is a bare-bones package manager for Emacs packages. It provides
+only a few essential features and should be combined with other tools
+such as Magit, epkg, use-package, and auto-compile.
+
+Borg assimilates packages into the ~/.emacs.d repository as Git
+submodules. An assimilated package is called a drone and a borg-based
+~/.emacs.d repository is called a collective.
+#+END_QUOTE
 
 #+BEGIN_SRC emacs-lisp
-  ; Use the package manager
-  (require 'package)
-
-  ; Sets package management sources
-  (setq package-archives '(("gnu"   . "https://elpa.gnu.org/packages/")
-                           ("melpa" . "https://melpa.org/packages/")))
-
-  ; Initialize the package manager
-  (package-initialize)
+  (progn ;    `borg'
+    (add-to-list 'load-path (expand-file-name "lib/borg" user-emacs-directory))
+    (require  'borg)
+    (borg-initialize))
 #+END_SRC
 
 ** use-package
-There is a neat little package called /use-package/, that makes using packages a lot more enjoyable.
-
 #+BEGIN_QUOTE
-The use-package macro allows you to isolate package configuration in your .emacs file in a way that is both performance-oriented and, well, tidy.
+The use-package macro allows you to isolate package configuration in
+your .emacs file in a way that is both performance-oriented and, well,
+tidy.
 #+END_QUOTE
 
-It also lets you install your required packages automatically, if they are missing. This gets you up and running in no time, if you are on a new system.
-For that matter, it is also quite handy to automatically install use-package itself, if it isn't already installed.
-
 #+BEGIN_SRC emacs-lisp
-  ;; Bootstrap `use-package'
-  (unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
+  (progn ;    `use-package'
+    (require  'use-package)
+    (setq use-package-verbose t))
 #+END_SRC
 
 * GUI
