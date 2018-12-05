@@ -299,7 +299,7 @@ https://www.superloopy.io/articles/2017/hydra-theme-switcher.html
 
 #+BEGIN_SRC emacs-lisp
   (use-package spaceline-config
-    :ensure spaceline
+    :disabled t
     :config
     ;;(spaceline-emacs-theme)
     (spaceline-spacemacs-theme)
@@ -308,7 +308,7 @@ https://www.superloopy.io/articles/2017/hydra-theme-switcher.html
 
 #+BEGIN_SRC emacs-lisp
   (use-package spaceline-all-the-icons
-    :ensure t
+    :disabled t
     :after spaceline
     :config (spaceline-all-the-icons-theme)
     (setq spaceline-responsive nil
@@ -1815,12 +1815,6 @@ venv-location. You can then load any of them with 'venv-workon'.
   (add-hook 'c-mode-common-hook 'my-c++-mode-hook)
 #+END_SRC
 
-*** Clang-format
-#+BEGIN_SRC emacs-lisp
-  (use-package clang-format
-    :ensure t)
-#+END_SRC
-
 ** Which function
 Display the current function in the modeline
 
@@ -1930,7 +1924,7 @@ Cquery is a really cool LSP plugin, that works rather well. I do prefer it over 
 ** checkpatch
 #+BEGIN_SRC emacs-lisp
   (use-package flycheck-checkpatch
-    :ensure t
+    :disabled t
     :after flycheck
     :config
       (flycheck-checkpatch-setup))
@@ -2195,7 +2189,7 @@ View PDFs
 * Salt
 #+BEGIN_SRC emacs-lisp
   (use-package salt-mode
-    :ensure t
+    :disabled t
     :init
     (add-hook 'salt-mode-hook
           (lambda ()
