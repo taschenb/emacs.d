@@ -1843,24 +1843,12 @@ Cquery is a really cool LSP plugin, that works rather well. I do prefer it over 
 [[https://github.com/MaskRay/ccls][ccls]] is a promising fork of cquery
 
 #+BEGIN_SRC emacs-lisp
-  (defun ccls//enable ()
-    (condition-case nil
-        (lsp-ccls-enable)
-      (user-error nil)))
-
   (use-package ccls
-    :commands lsp-ccls-enable
     :config
-    (setq ccls-executable "~/projects/ccls/build/ccls"
-          ;; Enable semantic highlighting
-          ccls-sem-highlight-method 'font-lock
-          ;; A clearer completion label
-          ccls-extra-init-params '(:completion (:detailedLabel t))
-          ;; Speed up completion
-          company-transformers nil company-lsp-async t company-lsp-cache-candidates nil)
+    (setq ccls-executable "~/projects/ccls/build/ccls")
     :init
-    (add-hook 'c-mode-common-hook #'ccls//enable)
-    (add-hook 'c++-mode-hook #'ccls//enable))
+    (add-hook 'c-mode-hook (lambda () (require 'ccls) (lsp)))
+    (add-hook 'c++-mode-hook (lambda () (require 'ccls) (lsp))))
 #+END_SRC
 
 ** Disassembler
