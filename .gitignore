@@ -2,3 +2,4 @@ var
 
 custom.el
 config.el
+.lsp-session
