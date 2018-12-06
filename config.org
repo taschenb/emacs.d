@@ -342,10 +342,16 @@ In case no-littering is being used, store in in its var directory
 #+END_SRC
 
 * Autosave
-Autosaves might come in handy, but stop spreading #filename#-files everywhere. Put them all together in your emacs-directory under auto-saves.
+Autosaves might come in handy, but stop spreading #filename#-files
+everywhere. Put them all together in your emacs-directory under
+auto-saves. In case the package no-littering is being used, use its
+var-directory instead
 
 #+BEGIN_SRC emacs-lisp
-  (defvar --auto-save-directory (concat user-emacs-directory "auto-saves/"))
+  (if (boundp 'no-littering-var-directory)
+      (defvar --auto-save-directory (concat no-littering-var-directory "auto-saves/"))
+    (defvar --auto-save-directory (concat user-emacs-directory "auto-saves/")))
+
   (if (not (file-exists-p --auto-save-directory))
           (make-directory --auto-save-directory t))
   (setq auto-save-file-name-transforms
