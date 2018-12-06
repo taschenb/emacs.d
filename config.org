@@ -321,9 +321,13 @@ https://www.superloopy.io/articles/2017/hydra-theme-switcher.html
 
 * Backups
 You probably can't have enough backups, keep a few versions around in your emacs-directory "backups".
+In case no-littering is being used, store in in its var directory
 
 #+BEGIN_SRC emacs-lisp
-  (defvar --backup-directory (concat user-emacs-directory "backups/"))
+  (if (boundp 'no-littering-var-directory)
+      (defvar --backup-directory (concat no-littering-var-directory "backups/"))
+    (defvar --backup-directory (concat user-emacs-directory "backups/")))
+
   (if (not (file-exists-p --backup-directory))
           (make-directory --backup-directory t))
   (setq backup-directory-alist `(("." . ,--backup-directory)))
