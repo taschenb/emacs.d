@@ -1726,12 +1726,6 @@ For C/C++ I use gdb with many-windows.
     (setq realgud:pdb-command-name "python -m pdb"))
 #+END_SRC
 
-** Code Style
-#+BEGIN_SRC emacs-lisp
-  (use-package py-yapf
-    :defer t)
-#+END_SRC
-
 ** Virtualenv
 Manage virtualenvs manually. Symlink all venvs, you want to use, in
 venv-location. You can then load any of them with 'venv-workon'.
