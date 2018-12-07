@@ -1969,7 +1969,8 @@ Cquery is a really cool LSP plugin, that works rather well. I do prefer it over 
     :config
     (yas/initialize)
     ;; Custom snippets
-    (yas/load-directory "~/.emacs.d/snippets"))
+    (if (not(boundp 'no-littering-etc-directory))
+        (yas/load-directory "~/.emacs.d/snippets")))
 #+END_SRC
 
 ** Snippets
