@@ -2133,18 +2133,6 @@ View PDFs
   (use-package yaml-mode)
 #+END_SRC
 
-* Epub
-This requires unzip to be found in $PATH for unzipping epubs.
-Emacs has to be compiled with libxml2 support.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package nov
-    :defer t
-    :config
-    (push '("\\.epub\\'" . nov-mode) auto-mode-alist)
-  )
-#+END_SRC
-
 * Email
 ** msmtp
 #+BEGIN_SRC emacs-lisp
