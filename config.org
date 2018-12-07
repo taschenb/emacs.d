@@ -292,13 +292,16 @@ https://www.superloopy.io/articles/2017/hydra-theme-switcher.html
 #+END_SRC
 
 * Mode line
+** doom-modeline
 #+BEGIN_SRC emacs-lisp
   (use-package doom-modeline
     :hook (after-init . doom-modeline-init)
     :config
-    (setq doom-modeline-height 15))
+    (setq doom-modeline-height 15
+          column-number-mode t))
 #+END_SRC
 
+** spaceline
 #+BEGIN_SRC emacs-lisp
   (use-package spaceline-config
     :disabled t
