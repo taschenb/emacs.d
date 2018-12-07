@@ -354,8 +354,8 @@ var-directory instead
 
 #+BEGIN_SRC emacs-lisp
   (if (boundp 'no-littering-var-directory)
-      (defvar --auto-save-directory (concat no-littering-var-directory "auto-saves/"))
-    (defvar --auto-save-directory (concat user-emacs-directory "auto-saves/")))
+      (defvar --auto-save-directory (concat no-littering-var-directory "auto-save/"))
+    (defvar --auto-save-directory (concat user-emacs-directory "auto-save/")))
 
   (if (not (file-exists-p --auto-save-directory))
           (make-directory --auto-save-directory t))
