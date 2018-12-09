@@ -329,14 +329,18 @@ That way you can't destroy your progress if you go back in your history and make
 The Emacs version is however a little unstable.
 
 #+BEGIN_SRC emacs-lisp
-    (use-package undo-tree
-      :config
-      (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo"))
-            undo-tree-auto-save-history t
-            undo-tree-enable-undo-in-region nil
-            undo-tree-visualizer-timestamps t
-            undo-tree-visualizer-diff t)
-      (global-undo-tree-mode))
+  (use-package undo-tree
+    :config
+    (if (not (boundp 'no-littering-var-directory))
+        (progn
+          (defvar --undo-directory (concat user-emacs-directory "undo"))
+          (setq undo-tree-history-directory-alist `(("." . ,--undo-directory)))))
+
+    (setq undo-tree-auto-save-history t
+          undo-tree-enable-undo-in-region nil
+          undo-tree-visualizer-timestamps t
+          undo-tree-visualizer-diff t)
+    (global-undo-tree-mode))
 #+END_SRC
 
 * Revert
