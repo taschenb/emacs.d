@@ -2201,7 +2201,7 @@ http://kitchingroup.cheme.cmu.edu/blog/2015/09/04/Checking-for-email-attachments
     (add-to-list 'mu4e-bookmarks
                  (make-mu4e-bookmark
                   :name  "Zephyr"
-                  :query "list:zephyr-devel.lists.zephyrproject.org or list:zephyr-users.lists.zephyrproject.org or list:devel.zephyrproject.org or uesrs.lists.zephyrproject.org"
+                  :query "list:zephyr-devel.lists.zephyrproject.org or list:zephyr-users.lists.zephyrproject.org or list:devel.zephyrproject.org or list:users.lists.zephyrproject.org"
                   :key ?z))
     (add-to-list 'mu4e-bookmarks
                  (make-mu4e-bookmark
