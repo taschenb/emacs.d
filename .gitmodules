@@ -19,6 +19,9 @@
 [submodule "ccls"]
 	path = lib/ccls
 	url = https://github.com/MaskRay/emacs-ccls.git
+[submodule "closql"]
+	path = lib/closql
+	url = https://github.com/emacscollective/closql
 [submodule "cmake-ide"]
 	path = lib/cmake-ide
 	url = https://github.com/atilaneves/cmake-ide.git
@@ -61,6 +64,9 @@
 [submodule "emacs-memoize"]
 	path = lib/emacs-memoize
 	url = https://github.com/skeeto/emacs-memoize.git
+[submodule "emacsql"]
+	path = lib/emacsql
+	url = https://github.com/skeeto/emacsql
 [submodule "evil"]
 	path = lib/evil
 	url = https://github.com/emacs-evil/evil.git
@@ -91,6 +97,9 @@
 [submodule "flycheck"]
 	path = lib/flycheck
 	url = https://github.com/flycheck/flycheck.git
+[submodule "forge"]
+	path = lib/forge
+	url = https://github.com/magit/forge
 [submodule "ghub"]
 	path = lib/ghub
 	url = https://github.com/magit/ghub.git
