@@ -178,9 +178,6 @@
 [submodule "pdf-tools"]
 	path = lib/pdf-tools
 	url = https://github.com/politza/pdf-tools.git
-[submodule "powerline"]
-	path = lib/powerline
-	url = https://github.com/milkypostman/powerline.git
 [submodule "projectile"]
 	path = lib/projectile
 	url = https://github.com/bbatsov/projectile.git
@@ -212,9 +209,6 @@
 [submodule "smarttabs"]
 	path = lib/smarttabs
 	url = https://github.com/jcsalomon/smarttabs.git
-[submodule "spaceline"]
-	path = lib/spaceline
-	url = https://github.com/TheBB/spaceline.git
 [submodule "spinner"]
 	path = lib/spinner
 	url = https://github.com/Malabarba/spinner.el.git

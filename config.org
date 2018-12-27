@@ -254,36 +254,12 @@ https://www.superloopy.io/articles/2017/hydra-theme-switcher.html
 #+END_SRC
 
 * Mode line
-** doom-modeline
 #+BEGIN_SRC emacs-lisp
   (use-package doom-modeline
     :hook (after-init . doom-modeline-init)
     :config
     (setq doom-modeline-height 15
           column-number-mode t))
-#+END_SRC
-
-** spaceline
-#+BEGIN_SRC emacs-lisp
-  (use-package spaceline-config
-    :disabled t
-    :config
-    ;;(spaceline-emacs-theme)
-    (spaceline-spacemacs-theme)
-    (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state))
-#+END_SRC
-
-#+BEGIN_SRC emacs-lisp
-  (use-package spaceline-all-the-icons
-    :disabled t
-    :after spaceline
-    :config (spaceline-all-the-icons-theme)
-    (setq spaceline-responsive nil
-          powerline-text-scale-factor 1.0
-          ;; Known bug in all-the-icons font: separators don't align well
-          ;; spaceline-all-the-icons-separator-type 'wave)
-          spaceline-all-the-icons-separator-type 'none)
-    (spaceline-toggle-all-the-icons-buffer-size-off))
 #+END_SRC
 
 * Backups
