@@ -1622,18 +1622,7 @@ the same language server.
 ** Mode
 #+BEGIN_SRC emacs-lisp
   (use-package lsp-mode
-    :config
-    ;; Enable imenu-ingegration
-    (require 'lsp-imenu)
-    (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
-
-    (lsp-define-stdio-client lsp-python "python"
-                             #'projectile-project-root
-                             '("pyls"))
-    (add-hook 'python-mode-hook
-              (lambda ()
-                (lsp-python-enable)))
-
+    :commands lsp
     :bind
       (:map evil-normal-state-map
             ("C-x ." . 'xref-find-definitions)))
