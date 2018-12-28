@@ -49,6 +49,9 @@
 [submodule "editorconfig"]
 	path = lib/editorconfig
 	url = https://github.com/editorconfig/editorconfig-emacs.git
+[submodule "eglot"]
+	path = lib/eglot
+	url = https://github.com/joaotavora/eglot
 [submodule "eldoc-eval"]
 	path = lib/eldoc-eval
 	url = https://github.com/thierryvolpiatto/eldoc-eval.git
@@ -97,6 +100,9 @@
 [submodule "flycheck"]
 	path = lib/flycheck
 	url = https://github.com/flycheck/flycheck.git
+[submodule "flymake"]
+	path = lib/flymake
+	url = https://github.com/emacs-straight/flymake
 [submodule "forge"]
 	path = lib/forge
 	url = https://github.com/magit/forge
@@ -133,6 +139,9 @@
 [submodule "ivy-xref"]
 	path = lib/ivy-xref
 	url = https://github.com/alexmurray/ivy-xref.git
+[submodule "jsonrpc"]
+	path = lib/jsonrpc
+	url = https://github.com/emacsmirror/jsonrpc
 [submodule "key-chord"]
 	path = lib/key-chord
 	url = https://github.com/emacsorphanage/key-chord.git
