@@ -1725,36 +1725,6 @@ various informations.
     :bind (("<f5>" . cmake-ide-compile)))
 #+END_SRC
 
-** cquery
-Cquery is a really cool LSP plugin, that works rather well. I do prefer it over rtags
-
-#+BEGIN_SRC emacs-lisp
-  (defun cquery//enable ()
-    (condition-case nil
-        (lsp-cquery-enable)
-      (user-error nil)))
-
-  (use-package cquery
-    :disabled t
-    :commands lsp-cquery-enable
-    :config
-    (setq cquery-executable "~/projects/cquery/build/cquery")
-    (setq company-transformers nil company-lsp-async t company-lsp-cache-candidates nil)
-    :init (add-hook 'c-mode-common-hook #'cquery//enable))
-#+END_SRC
-
-** ccls
-[[https://github.com/MaskRay/ccls][ccls]] is a promising fork of cquery
-
-#+BEGIN_SRC emacs-lisp
-  (use-package ccls
-    :config
-    (setq ccls-executable "~/projects/ccls/build/ccls")
-    :init
-    (add-hook 'c-mode-hook (lambda () (require 'ccls) (lsp)))
-    (add-hook 'c++-mode-hook (lambda () (require 'ccls) (lsp))))
-#+END_SRC
-
 ** Disassembler
 #+BEGIN_SRC emacs-lisp
   (use-package disaster

@@ -16,9 +16,6 @@
 [submodule "avy"]
 	path = lib/avy
 	url = https://github.com/abo-abo/avy.git
-[submodule "ccls"]
-	path = lib/ccls
-	url = https://github.com/MaskRay/emacs-ccls.git
 [submodule "closql"]
 	path = lib/closql
 	url = https://github.com/emacscollective/closql
