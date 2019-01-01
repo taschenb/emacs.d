@@ -54,6 +54,23 @@ submodules. An assimilated package is called a drone and a borg-based
     (borg-initialize))
 #+END_SRC
 
+** auto-compile
+Automatically recompile Emacs Lisp source files, to avoid outdated
+byte code files.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package auto-compile
+    :demand t
+    :config
+    (auto-compile-on-load-mode)
+    (auto-compile-on-save-mode)
+    (setq auto-compile-display-buffer nil
+          auto-compile-mode-line-counter t
+          auto-compile-source-recreate-deletes-dest t
+          auto-compile-toggle-deletes-nonlib-dest t
+          auto-compile-update-autoloads t))
+#+END_SRC
+
 ** use-package
 #+BEGIN_QUOTE
 The use-package macro allows you to isolate package configuration in
