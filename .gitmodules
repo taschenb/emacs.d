@@ -10,6 +10,9 @@
 [submodule "auctex"]
 	path = lib/auctex
 	url = https://git.savannah.gnu.org/git/auctex.git
+[submodule "auto-compile"]
+	path = lib/auto-compile
+	url = https://github.com/emacscollective/auto-compile
 [submodule "avy"]
 	path = lib/avy
 	url = https://github.com/abo-abo/avy.git
@@ -160,6 +163,9 @@
 [submodule "org-super-agenda"]
 	path = lib/org-super-agenda
 	url = https://github.com/alphapapa/org-super-agenda.git
+[submodule "packed"]
+	path = lib/packed
+	url = https://github.com/emacscollective/packed
 [submodule "pdf-tools"]
 	path = lib/pdf-tools
 	url = https://github.com/politza/pdf-tools.git
