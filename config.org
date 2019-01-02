@@ -1403,10 +1403,6 @@ Writegood highlights text based on a set of weasel-words, passive-voice and dupl
                writegood-mode
                writegood-reading-ease
                writegood-version)
-    :bind
-      (("\C-cg" . writegood-mode)
-       ("\C-c\C-gg" . writegood-grade-level)
-       ("\C-c\C-ge" . writegood-reading-ease))
     :config
     (add-hook 'text-mode-hook 'writegood-mode))
 #+END_SRC
@@ -1851,7 +1847,9 @@ various informations.
 #+BEGIN_SRC emacs-lisp
   (use-package magit
     :init
-    (global-set-key (kbd "C-x g") 'magit-status)
+    :bind (("C-x g" . magit-status)
+           ("C-c g" . magit-file-popup)
+           ("C-c G" . magit-dispatch-popup))
     :config
     (setq magit-display-buffer-function
           'magit-display-buffer-same-window-except-diff-v1)
