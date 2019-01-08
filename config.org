@@ -725,9 +725,9 @@ Evil-snipe emulates vim-seek and/or vim-sneak in evil-mode. It provides 2-charac
 
     "Edit often used files"
     ("e"  (find-file "~/.emacs.d/config.org") "emacs" :color blue)
-    ("i"  (find-file "~/.emacs.d/org/inbox.org") "inbox" :color blue)
-    ("w"  (find-file "~/.emacs.d/org/work.org") "work" :color blue)
-    ("h"  (find-file "~/.emacs.d/org/home.org") "home" :color blue)
+    ("i"  (find-file (concat org-directory "/inbox.org")) "inbox" :color blue)
+    ("w"  (find-file (concat org-directory "/work.org")) "work" :color blue)
+    ("h"  (find-file (concat org-directory "/home.org")) "home" :color blue)
 
     ("q"   quit-window "quit" :color teal))
 
@@ -786,7 +786,7 @@ Enable on the fly spell checking with a special mode for source code to check in
 ** Misc
 
 #+BEGIN_SRC emacs-lisp
-  (setq org-directory "~/.emacs.d/org/")
+  (setq org-directory "~/.emacs.d/var/org/")
 
   ;; Wrap lines
   (add-hook 'org-mode-hook 'visual-line-mode)
@@ -814,10 +814,10 @@ Enable on the fly spell checking with a special mode for source code to check in
     (setq org-ref-completion-library 'org-ref-ivy-cite)
     :config
     (require 'org-ref-pdf)
-    (setq reftex-default-bibliography '("~/.emacs.d/bibliography/references.bib"))
-    (setq org-ref-bibliography-notes "~/.emacs.d/bibliography/notes.org"
-          org-ref-default-bibliography '("~/.emacs.d/bibliography/references.bib")
-          org-ref-pdf-directory "~/uni/Master/Thesis/paper/")
+    (setq reftex-default-bibliography (concat org-directory "/bibliography/references.bib")
+          org-ref-bibliography-notes (concat org-directory "/bibliography/notes.org")
+          org-ref-default-bibliography (concat org-directory "/bibliography/references.bib")
+          org-ref-pdf-directory (concat org-directory "/bibliography/pdfs"))
   )
 #+END_SRC
 
