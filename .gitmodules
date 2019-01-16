@@ -203,6 +203,9 @@
 [submodule "shrink-path"]
 	path = lib/shrink-path
 	url = https://gitlab.com/bennya/shrink-path.el.git
+[submodule "smartparens"]
+	path = lib/smartparens
+	url = https://github.com/Fuco1/smartparens.git
 [submodule "smarttabs"]
 	path = lib/smarttabs
 	url = https://github.com/jcsalomon/smarttabs.git
