@@ -221,6 +221,9 @@
 [submodule "tablist"]
 	path = lib/tablist
 	url = https://github.com/politza/tablist.git
+[submodule "transient"]
+	path = lib/transient
+	url = https://github.com/magit/transient.git
 [submodule "treepy"]
 	path = lib/treepy
 	url = https://github.com/volrath/treepy.el.git
