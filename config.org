@@ -2383,3 +2383,14 @@ The default font is too tiny to read for me
     :config
     (setq ledger-use-iso-dates t))
 #+END_SRC
+
+** Expand-region
+#+BEGIN_SRC emacs-lisp
+(defhydra hydra-expand-region ()
+   "region: "
+   ("k" er/expand-region "expand")
+   ("j" er/contract-region "contract"))
+
+(evil-define-key 'visual 'global (kbd "v") #'hydra-expand-region/body)
+#+END_SRC
+
