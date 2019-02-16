@@ -121,7 +121,7 @@ Stretch cursor to its actual width, e.g. tab-character
 
 ** Font
 #+BEGIN_SRC emacs-lisp
-  (set-frame-font "Iosevka Term SS08-10")
+  (set-frame-font "Iosevka Term SS08-11")
 #+END_SRC
 
 ** Paste PRIMARY
