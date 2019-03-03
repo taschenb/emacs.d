@@ -112,6 +112,9 @@
 [submodule "git-timemachine"]
 	path = lib/git-timemachine
 	url = https://gitlab.com/pidu/git-timemachine.git
+[submodule "goto-chg"]
+	path = lib/goto-chg
+	url = https://github.com/emacs-evil/goto-chg
 [submodule "graphql"]
 	path = lib/graphql
 	url = https://github.com/vermiculus/graphql.el.git
