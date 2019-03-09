@@ -2150,6 +2150,9 @@ http://kitchingroup.cheme.cmu.edu/blog/2015/09/04/Checking-for-email-attachments
                           ,(my-make-mu4e-context "context2" "address2@domain.com"
                                                  "name2" nil)))
 
+    ;; Fix HTML background color issue
+    (setq shr-color-visible-luminance-min 80
+	  shr-color-visible-distance-min 5)
 
     :bind (:map mu4e-headers-mode-map
                 ("@" . (lambda ()
