@@ -2089,7 +2089,7 @@ http://kitchingroup.cheme.cmu.edu/blog/2015/09/04/Checking-for-email-attachments
           mu4e-compose-format-flowed t
           mu4e-view-show-addresses 't
           message-kill-buffer-on-exit t
-          )
+          mu4e-view-html-plaintext-ratio-heuristic most-positive-fixnum)
 
     ;; Fancy characters
     (setq mu4e-use-fancy-chars t
