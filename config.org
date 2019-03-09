@@ -2382,7 +2382,7 @@ The default font is too tiny to read for me
     (setq ledger-use-iso-dates t))
 #+END_SRC
 
-** Expand-region
+* Expand-region
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-expand-region ()
    "region: "
