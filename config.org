@@ -1517,13 +1517,6 @@ Illustrate different levels with different colors
     (add-hook 'LaTeX-mode-hook 'rainbow-delimiters-mode))
 #+END_SRC
 
-* Comments
-** poporg
-#+BEGIN_SRC emacs-lisp
-  (use-package poporg
-    :bind (("C-c /" . poporg-dwim)))
-#+END_SRC
-
 * Autocomplete
 ** Company
 #+BEGIN_SRC emacs-lisp
