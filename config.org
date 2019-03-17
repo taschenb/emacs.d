@@ -788,8 +788,6 @@ Enable on the fly spell checking with a special mode for source code to check in
 #+BEGIN_SRC emacs-lisp
   (setq org-directory "~/.emacs.d/var/org/")
 
-  ;; Wrap lines
-  (add-hook 'org-mode-hook 'visual-line-mode)
   ;; Force smart indentation
   (add-hook 'org-mode-hook 'org-indent-mode)
 
