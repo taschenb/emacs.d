@@ -2319,3 +2319,25 @@ The default font is too tiny to read for me
 (evil-define-key 'visual 'global (kbd "v") #'hydra-expand-region/body)
 #+END_SRC
 
+* Zoom
+For live-coding or presentations, the font-size should be
+easily increased to make it more readable.
+
+#+BEGIN_SRC emacs-lisp
+  (defun zoom-in ()
+    (interactive)
+    (let ((x (+ 10 (face-attribute 'default :height))))
+      (set-face-attribute 'default nil :height x)))
+
+  (defun zoom-out ()
+    (interactive)
+    (let ((x (+ (- 10) (face-attribute 'default :height))))
+      (set-face-attribute 'default nil :height x)))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+  (defhydra hydra-zoom (global-map "C-c w z")
+    "zoom"
+    ("i" zoom-in "in")
+    ("o" zoom-out "out"))
+#+END_SRC
