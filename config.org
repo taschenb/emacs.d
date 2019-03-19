@@ -1521,25 +1521,27 @@ Illustrate different levels with different colors
   (use-package company
     :diminish company-mode
     :init
-    (setf company-backends '((company-files
+    (setq company-backends '((company-files
                               company-keywords
                               company-capf
                               company-yasnippet)
                              (company-abbrev company-dabbrev)))
-    (setf company-idle-delay 0.5)
-    (setf company-tooltip-limit 10)
-    (setf company-minimum-prefix-length 1)
-    (setf company-echo-delay 0)
-    (setf company-auto-complete nil)
-    (add-hook 'after-init-hook #'global-company-mode)
+    (setq company-idle-delay .2
+          company-tooltip-limit 15
+          company-minimum-prefix-length 1
+          company-tooltip-minimum-width 60
+          company-echo-delay 0
+          company-auto-complete nil
+          company-tooltip-align-annotations t)
+    :hook (after-init . global-company-mode)
     :bind ( :map company-active-map
                  ("M-n" . nil)
                  ("M-p" . nil)
                  ("<return>" . nil)
                  ("RET" . nil)
-                 ("C-j" . #'company-complete)
-                 ("C-n" . #'company-select-next)
-                 ("C-p" . #'company-select-previous)))
+                 ("C-j" . 'company-complete)
+                 ("C-n" . 'company-select-next)
+                 ("C-p" . 'company-select-previous)))
 #+END_SRC
 
 ** Company backends
