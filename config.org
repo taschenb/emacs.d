@@ -1563,7 +1563,6 @@ Illustrate different levels with different colors
 *** Python
 #+BEGIN_SRC emacs-lisp
   (use-package company-anaconda
-    :disabled t
     :if (executable-find "python")
     :after (python company)
     :bind (:map python-mode-map
@@ -1634,7 +1633,6 @@ A modern looking popup-box for autocompletion.
 ** IDE package
 #+BEGIN_SRC emacs-lisp
   (use-package anaconda-mode
-    :disabled t
     :defer t
     :config
     (add-hook 'python-mode-hook 'anaconda-mode)
