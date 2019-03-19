@@ -25,6 +25,9 @@
 [submodule "company"]
 	path = lib/company
 	url = https://github.com/company-mode/company-mode.git
+[submodule "company-box"]
+	path = lib/company-box
+	url = https://github.com/sebastiencs/company-box
 [submodule "counsel-projectile"]
 	path = lib/counsel-projectile
 	url = https://github.com/ericdanan/counsel-projectile.git
