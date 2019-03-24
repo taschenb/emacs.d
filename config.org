@@ -193,9 +193,9 @@ Use relative line numbers in order to make evil-mode a little bit easier, but us
     (doom-themes-org-config)
 
     ;; org-mode: Header same size without background
-    (defun my/org-mode-hook ()
-      (set-face-attribute 'org-level-1 nil :height 1.0 :background nil))
-    (add-hook 'org-load-hook #'my/org-mode-hook)
+    (cl-loop for face in (face-list) do
+       (unless (eq face 'default)
+         (set-face-attribute face nil :height 1.0)))
   )
 #+END_SRC
 
