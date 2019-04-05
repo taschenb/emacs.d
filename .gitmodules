@@ -212,6 +212,9 @@
 [submodule "realgud"]
 	path = lib/realgud
 	url = https://github.com/realgud/realgud.git
+[submodule "restclient"]
+	path = lib/restclient
+	url = https://github.com/pashky/restclient.el
 [submodule "rust-mode"]
 	path = lib/rust-mode
 	url = https://github.com/rust-lang/rust-mode.git
