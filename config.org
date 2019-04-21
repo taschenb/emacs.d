@@ -1583,6 +1583,7 @@ A modern looking popup-box for autocompletion.
 #+BEGIN_SRC emacs-lisp
   (use-package company-box
     :init (setq company-box-icons-alist 'company-box-icons-all-the-icons)
+  :disabled t
     :config
     (setq company-box-backends-colors nil
           company-box-show-single-candidate t
