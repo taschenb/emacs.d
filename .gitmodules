@@ -224,6 +224,9 @@
 [submodule "shrink-path"]
 	path = lib/shrink-path
 	url = https://gitlab.com/bennya/shrink-path.el.git
+[submodule "simple-mpc"]
+	path = lib/simple-mpc
+	url = https://github.com/jorenvo/simple-mpc.git
 [submodule "smartparens"]
 	path = lib/smartparens
 	url = https://github.com/Fuco1/smartparens.git
