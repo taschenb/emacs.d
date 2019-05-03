@@ -2410,6 +2410,7 @@ The default font is too tiny to read for me
 * Ledger
 #+BEGIN_SRC emacs-lisp
   (use-package ledger-mode
+    :commands (ledger-mode)
     :config
     (setq ledger-use-iso-dates t))
 #+END_SRC
