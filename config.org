@@ -358,6 +358,13 @@ Kill running processes without confirmation when exiting Emacs
 (setq confirm-kill-processes nil)
 #+END_SRC
 
+** Follow symlinks to file under version control
+Do not ask, just follow the symlink
+
+#+BEGIN_SRC emacs-lisp
+(setq find-file-visit-truename t vc-follow-symlinks t)
+#+END_SRC
+
 * Buffer management
 #+BEGIN_SRC emacs-lisp
   (use-package uniquify
