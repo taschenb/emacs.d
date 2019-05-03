@@ -1928,7 +1928,6 @@ Use a modified version of
 * Snippets
 #+BEGIN_SRC emacs-lisp
   (use-package yasnippet
-    :defer t
     :config
     (yas/initialize)
     ;; Custom snippets
