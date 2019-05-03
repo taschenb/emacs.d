@@ -1250,7 +1250,8 @@ reference it regularly
 ** LibreOffice
 *** odt
 #+BEGIN_SRC emacs-lisp
-  (require 'ox-odt)
+  (use-package ox-odt
+    :after org-mode)
 #+END_SRC
 
 *** ods
