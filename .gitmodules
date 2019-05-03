@@ -73,6 +73,9 @@
 [submodule "emacsql"]
 	path = lib/emacsql
 	url = https://github.com/skeeto/emacsql
+[submodule "esup"]
+	path = lib/esup
+	url = https://github.com/jschaf/esup
 [submodule "evil"]
 	path = lib/evil
 	url = https://github.com/emacs-evil/evil.git
