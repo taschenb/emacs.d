@@ -1908,7 +1908,8 @@ Use a modified version of
 
 * protobuf
 #+BEGIN_SRC emacs-lisp
-  (use-package protobuf-mode)
+  (use-package protobuf-mode
+    :commands (protobuf-mode))
 #+END_SRC
 
 * Rust
