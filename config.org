@@ -2378,6 +2378,7 @@ Use elfeed for managing RSS feeds
 Use an org-file to setup the feeds
 #+BEGIN_SRC emacs-lisp
   (use-package elfeed-org
+    :after elfeed
     :config
     (elfeed-org)
     (setq rmh-elfeed-org-files (list "~/.emacs.d/elfeed.org")))
