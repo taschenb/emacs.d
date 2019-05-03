@@ -2086,6 +2086,7 @@ In your org-file add to the header
 View PDFs
 #+BEGIN_SRC emacs-lisp
   (use-package pdf-tools
+    :disabled t
     :config
     (pdf-tools-install)
     (setq-default pdf-view-display-size 'fit-page))
