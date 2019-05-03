@@ -352,9 +352,10 @@ Time is limited...
 
 * Buffer management
 #+BEGIN_SRC emacs-lisp
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'post-forward)
-(setq uniquify-after-kill-buffer-p t)
+  (use-package uniquify
+    :config
+    (setq uniquify-buffer-name-style 'post-forward)
+    (setq uniquify-after-kill-buffer-p t))
 #+END_SRC
 
 ** ibuffer
