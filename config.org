@@ -343,8 +343,9 @@ Automatically update buffer when the file was changed on disk
   (global-auto-revert-mode 1)
 #+END_SRC
 
-* yes/no to y/n
-Time is limited...
+* Interface-questions
+** yes/no to y/n
+Just press y/n instead of typing it out
 
 #+BEGIN_SRC emacs-lisp
 (fset 'yes-or-no-p 'y-or-n-p)
