@@ -589,13 +589,15 @@ Add a leader key
 ** Exit insert mode with 'jk'
 Exit insert mode by rolling over 'j', 'k'. Since it's not common (for me) to
 press these keys consecutively, this is a comfortable way of exiting insert mode.
+
 #+BEGIN_SRC emacs-lisp
-  (use-package key-chord
+  (use-package evil-escape
+    :defer t
     :after evil
+    :commands (evil-escape-pre-command-hook)
+    :init (add-hook 'pre-command-hook 'evil-escape-pre-command-hook)
     :config
-    (setq key-chord-two-keys-delay 0.5)
-    (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
-    (key-chord-mode 1))
+    (setq-default evil-escape-key-sequence "jk"))
 #+END_SRC
 
 ** Comments

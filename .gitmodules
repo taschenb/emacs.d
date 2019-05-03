@@ -82,6 +82,9 @@
 [submodule "evil-commentary"]
 	path = lib/evil-commentary
 	url = https://github.com/linktohack/evil-commentary.git
+[submodule "evil-escape"]
+	path = lib/evil-escape
+	url = https://github.com/syl20bnr/evil-escape
 [submodule "evil-goggles"]
 	path = lib/evil-goggles
 	url = https://github.com/edkolev/evil-goggles.git
@@ -151,9 +154,6 @@
 [submodule "jsonrpc"]
 	path = lib/jsonrpc
 	url = https://github.com/emacsmirror/jsonrpc
-[submodule "key-chord"]
-	path = lib/key-chord
-	url = https://github.com/emacsorphanage/key-chord.git
 [submodule "levenshtein"]
 	path = lib/levenshtein
 	url = https://github.com/emacsorphanage/levenshtein.git
