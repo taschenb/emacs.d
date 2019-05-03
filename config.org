@@ -862,11 +862,18 @@ same place at the same time.
 Enable the execution of python code blocks inside org-mode
 
 #+BEGIN_SRC emacs-lisp
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((python . t)
-     (shell . t)
-     (dot . t)))
+  (use-package ob-python
+    :defer t
+    :commands (org-babel-execute:python))
+
+  (use-package ob-shell
+    :defer t
+    :commands
+    (org-babel-execute:sh
+     org-babel-expand-body:sh
+
+     org-babel-execute:bash
+     org-babel-expand-body:bash))
 #+END_SRC
 
 ** Open code in same window
