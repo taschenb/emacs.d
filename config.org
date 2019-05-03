@@ -351,6 +351,13 @@ Just press y/n instead of typing it out
 (fset 'yes-or-no-p 'y-or-n-p)
 #+END_SRC
 
+** Kill processes on exit without asking
+Kill running processes without confirmation when exiting Emacs
+
+#+BEGIN_SRC emacs-lisp
+(setq confirm-kill-processes nil)
+#+END_SRC
+
 * Buffer management
 #+BEGIN_SRC emacs-lisp
   (use-package uniquify
