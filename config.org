@@ -1937,7 +1937,8 @@ Use a modified version of
 
 ** Snippets
 #+BEGIN_SRC emacs-lisp
-  (use-package yasnippet-snippets)
+  (use-package yasnippet-snippets
+    :after yasnippet)
 #+END_SRC
 
 * Git
