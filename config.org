@@ -87,15 +87,33 @@ tidy.
 * GUI
 ** Bars
 Hide the unnecessary and annoying toolbar
+
+While it can be done within Emacs, disabling the bars is rather slow.
+Instead, use your ~/Xresources file to speed this up.
+
+#+BEGIN_QUOTE
+Emacs.menuBar: off
+Emacs.verticalScrollBars: off
+Emacs.toolBar: off
+#+END_QUOTE
+
+In order to reload the Xresources after making changes, issue
+#+BEGIN_SRC sh
+xrdb ~/.Xresources
+#+END_SRC
+
+*** Emacs fallback
+Even if we do not have a proper Xresources, make sure to still disable
+everything
+
 #+BEGIN_SRC emacs-lisp
   (when (featurep 'menu-bar) (menu-bar-mode -1))
 #+END_SRC
 
 The GUI has more distracting stuff visible by default. Disable them as well
 #+BEGIN_SRC emacs-lisp
-  (when window-system
-    (tool-bar-mode -1)
-    (scroll-bar-mode -1))
+  (when tool-bar-mode (tool-bar-mode -1))
+  (when scroll-bar-mode (scroll-bar-mode -1))
 #+END_SRC
 
 ** Startup message
