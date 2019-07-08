@@ -1746,7 +1746,12 @@ venv-location. You can then load any of them with 'venv-workon'.
   (use-package eglot
     :init
     ;; Autostart for C/C++ files
-    (add-hook 'c-mode-common-hook 'eglot-ensure))
+    (add-hook 'c-mode-common-hook 'eglot-ensure)
+    :bind
+    (:map evil-normal-state-map
+          ("gd" . 'xref-find-definitions)
+          ("gD" . 'xref-find-definitions-other-window)
+          ("gr" . 'xref-find-references)))
 #+END_SRC
 
 ** Which function
