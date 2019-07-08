@@ -1741,6 +1741,14 @@ venv-location. You can then load any of them with 'venv-workon'.
   (add-hook 'c-mode-common-hook 'my-c++-mode-hook)
 #+END_SRC
 
+** LSP
+#+BEGIN_SRC emacs-lisp
+  (use-package eglot
+    :init
+    ;; Autostart for C/C++ files
+    (add-hook 'c-mode-common-hook 'eglot-ensure))
+#+END_SRC
+
 ** Which function
 Display the current function in the modeline
 
