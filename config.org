@@ -582,7 +582,7 @@ Projectile has native support for using ivy as its completion system. Counsel-pr
 
     (evil-mode)
     :config
-    (evil-define-key 'normal org-mode-map (kbd "TAB") 'org-cycle) ; cycle
+    (evil-define-key 'normal org-mode-map [tab] 'org-cycle) ; cycle
     :bind (:map evil-normal-state-map
                 ("j" . evil-next-visual-line)
                 ("k" . evil-previous-visual-line)
@@ -1473,7 +1473,7 @@ Treat underscore as word
 
 ** Evil tab
 #+BEGIN_SRC emacs-lisp
-  (define-key evil-normal-state-map (kbd "TAB") 'indent-for-tab-command)
+  (define-key evil-normal-state-map [tab] 'indent-for-tab-command)
 #+END_SRC
 
 ** Editorconfig
