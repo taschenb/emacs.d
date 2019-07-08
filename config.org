@@ -442,8 +442,8 @@ Switch window in a precise manner
 
 #+BEGIN_SRC emacs-lisp
   (use-package ace-window
-    ;; :bind (("C-x C-o" . ace-window)
-    ;;        ("C-x o" . ace-window))
+    :bind (("C-x C-o" . ace-window)
+           ("C-x o" . ace-window))
     :config
     (setq aw-keys '(?j ?k ?l ?u ?i ?o ?p ?n ?m)))
 #+END_SRC
