@@ -199,18 +199,13 @@ Use relative line numbers in order to make evil-mode a little bit easier, but us
 #+BEGIN_SRC emacs-lisp
   (use-package doom-themes
     :config
-    ;; Global settings (defaults)
-    (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-          doom-themes-enable-italic t) ; if nil, italics is universally disabled
+    ;; Enable bold and italic
+    (setq doom-themes-enable-bold t
+          doom-themes-enable-italic t)
 
-    ;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
-    ;; may have their own settings.
     (load-theme 'doom-Iosvkem t)
 
-    ;; Corrects (and improves) org-mode's native fontification.
-    (doom-themes-org-config)
-
-    ;; org-mode: Header same size without background
+    ;; org-mode: Header same size and without background
     (cl-loop for face in (face-list) do
        (unless (eq face 'default)
          (set-face-attribute face nil :height 1.0)))
