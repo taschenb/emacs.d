@@ -1465,7 +1465,7 @@ Treat underscore as word
 #+BEGIN_SRC emacs-lisp
   ;; Use tabs
   (setq-default indent-tabs-mode t)
-  (setq default-tab-width 8)
+  (setq-default tab-width 8)
   ;; For spaces you would do something like this:
   ;; (setq-default indent-tabs-mode nil)
   ;; (setq-default c-basic-offset 4)
@@ -1731,6 +1731,8 @@ venv-location. You can then load any of them with 'venv-workon'.
   (defun my-c++-mode-hook ()
     ;; Use a sane style
     (c-set-style "linux")
+    ;; Linux style sets it to 8, which can get weird then the tab-width is not
+    (setq c-basic-offset tab-width)
     ;; Break lines
     (auto-fill-mode)
     ;; If deleting a whitespace, delete all whitespaces before as well
