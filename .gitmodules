@@ -242,6 +242,9 @@
 [submodule "treepy"]
 	path = lib/treepy
 	url = https://github.com/volrath/treepy.el.git
+[submodule "ts"]
+	path = lib/ts
+	url = https://github.com/alphapapa/ts.el
 [submodule "undo-tree"]
 	path = lib/undo-tree
 	url = https://github.com/emacsorphanage/undo-tree.git
