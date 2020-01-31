@@ -2174,216 +2174,80 @@ http://kitchingroup.cheme.cmu.edu/blog/2015/09/04/Checking-for-email-attachments
 (add-hook 'message-send-hook 'email-pre-send-check-attachment)
 #+END_SRC
 
-** mu4e
-#+BEGIN_SRC emacs-lisp :tangle no
-  (use-package mu4e
-    :bind (("<f3>" . mu4e))
-    :init
-    (defun my-make-mu4e-context (name address fullname signature)
-      "Return a mu4e context named NAME with :match-func matching
-       its ADDRESS in From or CC fields of the parent message. The
-       context's `user-mail-address' is set to ADDRESS and its
-        `mu4e-compose-signature' to SIGNATURE."
-           (lexical-let ((addr-lex address))
-             (make-mu4e-context :name name
-                                :vars `((user-mail-address . ,address)
-                                        (user-full-name . ,fullname)
-                                        (mu4e-compose-signature . ,signature))
-                                :match-func
-                                (lambda (msg)
-                                  (when msg
-                                    (or (mu4e-message-contact-field-matches msg :to addr-lex)
-                                        (mu4e-message-contact-field-matches msg :cc addr-lex)))))))
-    :config
-    (require 'org-mu4e)
+** Personal setup
+For privacy reasons, the actual mail-setup is not checked in. To
+document my usage, the configuration is sketched in notmuch.
 
-    ;; General
-    (setq mu4e-maildir "~/.mail"
-          mu4e-get-mail-command "mbsync -q --all"
-          mu4e-confirm-quit nil
-          mu4e-context-policy 'pick-first
-          mu4e-compose-dont-reply-to-self t
-          mu4e-compose-format-flowed t
-          mu4e-view-show-addresses 't
-          message-kill-buffer-on-exit t
-          mu4e-view-html-plaintext-ratio-heuristic most-positive-fixnum)
-
-    ;; Fancy characters
-    (setq mu4e-use-fancy-chars t
-          mu4e-headers-flagged-mark     '("F" . "⚑")
-          mu4e-headers-new-mark         '("N" . "✱")
-          mu4e-headers-trashed-mark     '("T" . "♻")
-          mu4e-headers-unread-mark      '("u" . "☐")
-          mu4e-headers-duplicate-prefix '("=" . "≡")
-          mu4e-headers-default-prefix   '("|" . "│"))
-
-    ;; Headers
-    (setq mu4e-headers-fields
-          '( (:date           .   12)
-             (:flags          .    6)
-             (:mailing-list   .   15)
-             (:from           .   22)
-             (:thread-subject .   nil)))
-
-    ;; Maildir-shortcuts
-    (setq mu4e-maildir-shortcuts
-          '( ("/context1/INBOX" . ?m)
-             ("/context2/INBOX"  . ?p)))
-
-    ;; Bookmarks
-    (add-to-list 'mu4e-bookmarks
-                 (make-mu4e-bookmark
-                  :name  "Zephyr"
-                  :query "list:zephyr-devel.lists.zephyrproject.org or
-                          list:zephyr-users.lists.zephyrproject.org or
-                          list:users.lists.zephyrproject.org"
-                  :key ?z))
-    (add-to-list 'mu4e-bookmarks
-                 (make-mu4e-bookmark
-                  :name  "Gentoo"
-                  :query "list:gentoo-dev.gentoo.org or
-                          list:gentoo-user.gentoo.org"
-                  :key ?g))
-    (add-to-list 'mu4e-bookmarks
-                 (make-mu4e-bookmark
-                  :name  "Coreboot"
-                  :query "list:coreboot.coreboot.org"
-                  :key ?c))
-    (add-to-list 'mu4e-bookmarks
-                 (make-mu4e-bookmark
-                  :name  "Emacs"
-                  :query "list:help-gnu-emacs.org or
-                          list:help-gnu-emacs.gnu.org"
-                  :key ?e))
-
-    ;; Own adresses
-    (setq mu4e-user-mail-address-list '("address1@domain.com"
-                                        "address2@domain.com"))
-
-    ;; Contexts
-    (setq mu4e-contexts `(
-                          ,(my-make-mu4e-context "context1" "address1@domain.com"
-                                                 "name1" nil)
-                          ,(my-make-mu4e-context "context2" "address2@domain.com"
-                                                 "name2" nil)))
-
-    ;; Fix HTML background color issue
-    (setq shr-color-visible-luminance-min 80
-	  shr-color-visible-distance-min 5)
-
-    :bind (:map mu4e-headers-mode-map
-                ("@" . (lambda ()
-                         (interactive)
-                         (mu4e-view-mark-thread '(read)))))
-    )
-#+END_SRC
-
-*** Real setup
 #+BEGIN_SRC emacs-lisp
   (let ((personal-email-file "~/.emacs.d/email.el"))
     (if (file-exists-p personal-email-file)
         (load-file personal-email-file)))
 #+END_SRC
 
-*** helm-mu
-#+BEGIN_SRC emacs-lisp
-  (use-package helm-mu
+*** notmuch
+#+BEGIN_SRC emacs-lisp :tangle no
+  (use-package notmuch
+    :bind (("<f3>" . notmuch))
     :config
-    (define-key mu4e-main-mode-map "s" 'helm-mu)
-    (define-key mu4e-headers-mode-map "s" 'helm-mu)
-    (define-key mu4e-view-mode-map "s" 'helm-mu))
+    (setq notmuch-search-oldest-first nil
+          notmuch-show-indent-messages-width 2
+          notmuch-always-prompt-for-sender t
+          message-kill-buffer-on-exit t)
+
+    (setq notmuch-saved-searches
+          '((:name "inbox" :query "tag:inbox" :key "i")
+            (:name "unread" :query "tag:unread" :key "u")
+            (:name "emacs-list" :query "tag:emacs and tag:list" :key "e")
+            (:name "all" :query "*" :key "a")))
+
+    (setq notmuch-saved-searches
+          '((:name "inbox unread" :query "tag:inbox and tag:unread" :key "j")
+            (:name "inbox" :query "tag:inbox" :key "i")
+            (:name "unread" :query "tag:unread" :key "u")
+            (:name "gentoo-list" :query "tag:gentoo and tag:list" :key "g")
+            (:name "all" :query "*" :key "a"))
+
+    (define-key notmuch-search-mode-map "S"
+      (lambda (&optional beg end)
+        "Mark thread as spam"
+        (interactive (notmuch-interactive-region))
+        (notmuch-search-tag (list "+spam" "-inbox" "-unread" "-new") beg end))))
 #+END_SRC
 
-*** Folding
-#+BEGIN_SRC emacs-lisp
-(defun mu4e~headers-msg-unread (msg)
-  "Check if the given message is unread."
-  (let ((flags (mu4e-message-field msg :flags)))
-    (and (member 'unread flags) (not (member 'trashed flags)))))
+**** hooks
+Notmuch supports hooks to be run on various stages. The hooks
+directory goes into .notmuch/hooks inside your mail-directory, where
+the xapian directory is also located.
 
+Make sure that the files are executable.
 
-(defun mu4e-headers-toggle-thread-folding (&optional subthread fold-and-move)
-  "Checks if the thread at point is folded or not and toggles its
-folding state.  Folding is achieved using overlays and the
-invisible property.  With the optional argument SUBTHREAD it only
-folds the subthread and not the whole thread.  With the optional
-argument FOLD-AND-MOVE it moves to the next thread after
-folding."
-  (interactive "P")
-  (let ((last-marked-point (point)) ; Hold our starting position
-        (first-marked-point)
-        (msg-count 0)               ; Count folded messages
-        (unread-msg-count 0)        ; Count unread folded messages
-        (folded))
-    (save-excursion
-      (end-of-line)
-      ;; Check overlays at point
-      (let ((overlays (overlays-at (+ (point) 1))))
-        (while overlays
-          (let ((o (car overlays)))
-            ;; If folded, unfold it
-            (when (overlay-get o 'mu4e-folded-thread)
-              (delete-overlay o) ; Deleting the overlay removes all its
-                                 ; properties
-              (setq folded t)
-              (setq overlays '(t))))    ; exit the loop
-          (setq overlays (cdr overlays))))
-      (unless folded            ; If we found something to unfold ignore
-        (let* ((msg (mu4e-message-at-point))
-               ;; note: the thread id is shared by all messages in a thread
-               (thread-id (mu4e~headers-get-thread-info msg 'thread-id))
-               (path (mu4e~headers-get-thread-info msg 'path)))
-          (if subthread
-              (mu4e-headers-for-each
-               (lambda (mymsg)
-                 (when (string-match (concat "^" path)
-                                     (mu4e~headers-get-thread-info mymsg 'path))
-                   (setq msg-count (+ msg-count 1))
-                   (when (mu4e~headers-msg-unread mymsg)
-                     (setq unread-msg-count (+ unread-msg-count 1)))
-                   (end-of-line)
-                   ;; We need to move one point left to avoid weird
-                   ;; behavior, I think this is happening because
-                   ;; (end-of-line) takes us after the linebreak.
-                   (setq last-marked-point (- (point) 1))
-                   (unless first-marked-point
-                     (setq first-marked-point last-marked-point)))))
-            (mu4e-headers-for-each
-             (lambda (mymsg)
-               (when (string= thread-id
-                              (mu4e~headers-get-thread-info mymsg 'thread-id))
-                 (setq msg-count (+ msg-count 1))
-                 (when (mu4e~headers-msg-unread mymsg)
-                   (setq unread-msg-count (+ unread-msg-count 1)))
-                 (end-of-line)
-                 (setq last-marked-point (- (point) 1))
-                 (unless first-marked-point
-                   (setq first-marked-point last-marked-point))))))
-          ;; If it contains more than one messages, then fold it
-          (when (/= first-marked-point last-marked-point)
-            (let ((o (make-overlay first-marked-point last-marked-point)))
-              (overlay-put o 'mu4e-folded-thread t) ; Mark it as folded
-              (if (/= unread-msg-count 0)
-                  (overlay-put o 'display (format " +%d(%d)" msg-count unread-msg-count))
-                (overlay-put o 'display (format " +%d" msg-count)))
-              (overlay-put o 'evaporate t)
-              (overlay-put o 'invisible t) ; Make it disappear
-              (unless fold-and-move        ; Move to next thread?
-                ;; If not take us to the first message in the folded thread
-                (goto-char first-marked-point)
-                (beginning-of-line))))
-          (when fold-and-move            ; Move to next thread?
-            (goto-char last-marked-point)
-            (mu4e-headers-next)))))))
+***** pre-new
+A simple script so that 'notmuch new' fetches the mails first.
 
+#+BEGIN_SRC sh
+#!/bin/sh
+mbsync --all
 #+END_SRC
 
-*** Conversations
-#+BEGIN_SRC emacs-lisp
-  (use-package mu4e-conversation
-    :disabled t)
-#+END_SRC
+***** post-new
+This hook does the heavy-lifting for tagging the new messages.
+Example of how this could look like.
 
+#+BEGIN_SRC sh
+  #!/bin/sh
+
+  # Inbox
+  notmuch tag +inbox -new -- tag:new and to:me@my-domain.com
+  notmuch tag +inbox -new -- tag:new and to:me@my-other-domain.com
+
+  # Mailinglists
+  notmuch tag +gentoo-dev +gentoo +list -inbox -new -- tag:new and to:gentoo-dev@lists.gentoo.org
+  notmuch tag +gentoo-user +gentoo +list -inbox -new -- tag:new and to:gentoo-user@lists.gentoo.org
+
+  # Spam
+  notmuch tag +spam -inbox -new -unread -- tag:new and from:*@wolfram.co.uk
+  notmuch tag +spam -inbox -new -unread -- tag:new and from:*@wolfram.com
+#+END_SRC
 * RSS
 Use elfeed for managing RSS feeds
 #+BEGIN_SRC emacs-lisp

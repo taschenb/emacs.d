@@ -133,9 +133,6 @@
 [submodule "helm"]
 	path = lib/helm
 	url = https://github.com/emacs-helm/helm.git
-[submodule "helm-mu"]
-	path = lib/helm-mu
-	url = https://github.com/emacs-helm/helm-mu.git
 [submodule "ht"]
 	path = lib/ht
 	url = https://github.com/Wilfred/ht.el.git
