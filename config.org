@@ -1709,6 +1709,14 @@ venv-location. You can then load any of them with 'venv-workon'.
     (setq venv-location "~/projects/venvs/"))
 #+END_SRC
 
+** Send buffer
+After starting a python process using C-c C-p, send the current buffer
+to it to be executed.
+#+BEGIN_SRC emacs-lisp
+  (require 'python)
+  (define-key python-mode-map (kbd "C-c C-c")
+    (lambda () (interactive) (python-shell-send-buffer t)))
+#+END_SRC
 * C/C++
 ** Indentation & Style
 #+BEGIN_SRC emacs-lisp
