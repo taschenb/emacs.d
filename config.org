@@ -879,14 +879,14 @@ same place at the same time.
 
     ;; States
     (setq org-todo-keywords
-           '((sequence "TODO(t)"
-                       "NEXT(n)"
-                       "WAIT(w@/!)"
+           '((sequence "☞ TODO(t)"
+                       "☛ NEXT(n)"
+                       "⚑ WAIT(w@/!)"
                        "SOMEDAY(s/!)"
                        "PROJ(p)"
                        "|"
-                       "DONE(d@/!)"
-                       "CANCELED(c@)")))
+                       "✔ DONE(d@/!)"
+                       "✘ CANCELED(c@)")))
 #+END_SRC
 ** Babel
 Enable the execution of python code blocks inside org-mode
@@ -968,7 +968,7 @@ When editing a code block with C-c ', open it in the current window.
   (add-to-list 'org-capture-templates
                '("t" "Todo [inbox]" entry
                  (file org-default-inbox-file)
-                 "* TODO %?\n%U\n%a\n"
+                 "* ☞ TODO %?\n%U\n%a\n"
                  :clock-in t
                  :clock-resume t))
 #+END_SRC
