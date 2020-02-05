@@ -1603,23 +1603,6 @@ Illustrate different levels with different colors
     (add-to-list 'company-backends 'company-c-headers))
 #+END_SRC
 
-*** Python
-#+BEGIN_SRC emacs-lisp
-  (use-package company-anaconda
-    :if (executable-find "python")
-    :after (python company)
-    :bind (:map python-mode-map
-                ("M-." . anaconda-mode-find-definitions)
-                ("M-," . anaconda-mode-find-assignments)
-                ("M-r" . anaconda-mode-find-references)
-                ("M-*" . anaconda-mode-go-back))
-    :diminish anaconda-mode
-    :init
-    (add-hook 'python-mode-hook (lambda () (add-to-list (make-local-variable 'company-backends) '(company-anaconda :with company-yasnippet company-capf))))
-    (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
-    (add-hook 'python-mode-hook 'anaconda-mode))
-#+END_SRC
-
 ** Company-box
 A modern looking popup-box for autocompletion.
 
@@ -1674,16 +1657,6 @@ A modern looking popup-box for autocompletion.
 #+END_SRC
 
 * Python
-** IDE package
-#+BEGIN_SRC emacs-lisp
-  (use-package anaconda-mode
-    :defer t
-    :config
-    (add-hook 'python-mode-hook 'anaconda-mode)
-    :bind
-    (:map evil-normal-state-map
-          ("C-x ." . 'anaconda-mode-find-definitions)))
-#+END_SRC
 ** Docstrings
 #+BEGIN_SRC emacs-lisp
   (use-package python-docstring
@@ -1748,8 +1721,9 @@ venv-location. You can then load any of them with 'venv-workon'.
 #+BEGIN_SRC emacs-lisp
   (use-package eglot
     :init
-    ;; Autostart for C/C++ files
+    ;; Autostart for certain languages
     (add-hook 'c-mode-common-hook 'eglot-ensure)
+    (add-hook 'python-mode-hook 'eglot-ensure)
     :bind
     (:map evil-normal-state-map
           ("gd" . 'xref-find-definitions)
