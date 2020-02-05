@@ -1365,6 +1365,16 @@ Because dvipng can't handle tikz, use imagemagick
         '("<%d %b %Y>" . "<%d/%m/%y %a %H:%M>"))
 #+END_SRC
 
+** org-bullets
+#+BEGIN_SRC emacs-lisp
+  (use-package org-bullets
+    :hook (org-mode . org-bullets-mode))
+#+END_SRC
+
+** org-ellipsis
+#+BEGIN_SRC emacs-lisp
+  (setq org-ellipsis "⤵")
+#+END_SRC
 * Syntax-Checking
 #+BEGIN_SRC emacs-lisp
   (use-package flycheck
